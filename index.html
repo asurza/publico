@@ -1,56 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js GLB Example</title>
+    <meta charset="utf-8">
+    <title>Ejemplo de Tree js</title>
     <style>
         body { margin: 0; }
-        canvas { display: block; }
     </style>
-    <script src='https://assets.codepen.io/409445/three.min.js'></script>
-    <!-- GLTFLoader.js source -->
-    <script src="https://assets.codepen.io/409445/GLTFLoader.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./asset/three/build/three.module.js"
+            }
+        }
+    </script>
+</head>
 <body>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
-
-
-<script>
-    // Variables globales
-    let scene, camera, renderer;
-
-    // Función principal
-    function init() {
-        // Escena
-        scene = new THREE.Scene();
-
-        // Cámara
-        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 5;
-
-        // Renderer
-        renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
-
-        // Carga del modelo GLB
-        var loader = new THREE.GLTFLoader();
-        loader.load('estructura.glb', function (gltf) {
-            scene.add(gltf.scene);
-        });
-
-        // Render loop
-        animate();
-    }
-
-    // Función de animación
-    function animate() {
-        requestAnimationFrame(animate);
-        renderer.render(scene, camera);
-    }
-
-    // Ejecutar la función principal al cargar la página
-    window.onload = init;
-</script>
+<script type="module" src="./index.js"></script>
 </body>
 </html>
